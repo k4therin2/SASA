@@ -1,29 +1,29 @@
 
-
 /**
  * Created by Katherine on 4/20/2015.
  */
 public class Sorting {
 
 
-  //  private static int[] arr;
+    private static int[] arr;
     private static int numItems;
-    private static int leftNode;
-    private static int rightNode;
-    private static int parent;
 
+    //===============================[HEAPSORT]=======================================
     // Build-Heap Function
-    public static void buildheap(int[] arr){
-    	numItems=arr.length-1;
+    public static int[] buildheap(int[] arr){
+    	int numItems=arr.length-1;
     	for(int i=numItems/2; i>=0; i--){
-    		maxheap(arr,i);
+    		arr = maxheap(arr,i);
     	}
+    	
+    	return arr;
     }
     
     // Max-Heap Function
-    public static void maxheap(int[] arr, int position){
-    	leftNode=2*position;
-    	rightNode=2*position+1;
+    public static int[] maxheap(int[] arr, int position){
+    	int leftNode=2*position;
+    	int rightNode=2*position+1;
+    	int parent;
     	
     	if(leftNode <= numItems && arr[leftNode] > arr[position]){
     		parent=leftNode;
@@ -39,27 +39,29 @@ public class Sorting {
     		int temp = arr[position];
     	    arr[position] = arr[parent];
     	    arr[parent] = temp;
-    		maxheap(arr, parent);
+    		arr = maxheap(arr, parent);
     	}
+    	
+    	return arr;
     }
     
     // Sort Function
     public static int[] heapSort(int[] arr){
-    	buildheap(arr);
+    	arr = buildheap(arr);
     	
     	for(int i=numItems;i>0;i--){
     		int temp = arr[0];
     	    arr[0] = arr[i];
     	    arr[i] = temp;
     		numItems=numItems-1;
-    		maxheap(arr, 0);
+    		arr = maxheap(arr, 0);
     	}
     	
     	return arr;
     }
-    
+    //===============================[/HEAPSORT]=======================================   
 
-
+    //===============================[QUICKORT]=======================================
     static int[] quickSort(int [] arr){
         numItems = arr.length;
         return myQuickSort(arr, 0, numItems-1);
@@ -89,9 +91,7 @@ public class Sorting {
             // values.
             // As we are done we can increase i and j
             if (i <= j) {
-                int temp = arr[i];
-                arr[i] = arr[j];
-                arr[j] = temp;
+                exchange(i, j);
                 i++;
                 j--;
             }
@@ -105,9 +105,14 @@ public class Sorting {
         return arr;
     }
 
+    static void exchange(int i, int j) {
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
 
     
-
+    //===============================[/QUICKSORT]=======================================
     static int[] mergeSort(int [] arr){
         int[] no = {0};
         return no;

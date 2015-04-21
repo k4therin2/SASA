@@ -6,7 +6,7 @@
 public class Sorting {
 
 
-  //  private static int[] arr;
+    private static int[] arr;
     private static int numItems;
     private static int leftNode;
     private static int rightNode;
@@ -89,9 +89,7 @@ public class Sorting {
             // values.
             // As we are done we can increase i and j
             if (i <= j) {
-                int temp = arr[i];
-                arr[i] = arr[j];
-                arr[j] = temp;
+                exchange(i, j);
                 i++;
                 j--;
             }
@@ -105,6 +103,11 @@ public class Sorting {
         return arr;
     }
 
+    static void exchange(int i, int j) {
+        int temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
 
     
 

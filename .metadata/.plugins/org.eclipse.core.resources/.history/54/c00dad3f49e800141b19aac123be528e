@@ -6,7 +6,7 @@
 public class Sorting {
 
 
-  //  private static int[] arr;
+    private static int[] arr;
     private static int numItems;
     private static int leftNode;
     private static int rightNode;

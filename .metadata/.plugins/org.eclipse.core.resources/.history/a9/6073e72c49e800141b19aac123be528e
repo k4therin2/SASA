@@ -11,14 +11,12 @@ public class Main {
 
 
         System.out.println("Increasing: "+ Arrays.toString(increasing));
-        System.out.println("Decreasing: "+ Arrays.toString(decreasing));
-        System.out.println("Random: "+ Arrays.toString(random));
-        
-        
         result = Sorting.heapSort(increasing);
         System.out.println("Heapsort result, increasing: " + Arrays.toString(result));
+        System.out.println("Decreasing: "+ Arrays.toString(decreasing));
         result = Sorting.heapSort(decreasing);
         System.out.println("Heapsort result, decreasing: " + Arrays.toString(result));
+        System.out.println("Random: "+ Arrays.toString(random));
         result = Sorting.heapSort(random);
         System.out.println("Heapsort result, random: " + Arrays.toString(result));
         
