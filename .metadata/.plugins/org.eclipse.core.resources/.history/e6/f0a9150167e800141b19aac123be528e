@@ -104,7 +104,6 @@ public class Reporting1 {
 	      return result;
 		
 	}
-	
 	private static double meanVal(double[] arrayOfSamples){
 		double total = 0;
 		    for (double i :arrayOfSamples){

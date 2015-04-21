@@ -70,24 +70,21 @@ public class Reporting1 {
 
     
 	private static String testSorts(int[] arr) {
-		int[] initial = arr.clone();
 		double start;
 		double[] heapTime = new double[10];
 		double[] quickTime = new double[10];
 		double[] mergeTime = new double[10];
 		
 		for (int i=0; i < 10; i++){
-	        arr = initial.clone();
 			start = System.nanoTime();
 	        Sorting.heapSort(arr);
 	        heapTime[i] = System.nanoTime()-start;
 	       
-	        arr = initial.clone();
+	        
 			start = System.nanoTime();
 			Sorting.quickSort(arr);  
 	        quickTime[i] = System.nanoTime()-start;
 	        
-	        arr = initial.clone();
 			start = System.nanoTime();
 			Sorting.mergeSort(arr); 
 	        mergeTime[i] = System.nanoTime()-start;
@@ -104,7 +101,6 @@ public class Reporting1 {
 	      return result;
 		
 	}
-	
 	private static double meanVal(double[] arrayOfSamples){
 		double total = 0;
 		    for (double i :arrayOfSamples){

@@ -21,47 +21,5 @@ File format: The three files you will be producing must have the same
 public class Reporting2 {
 	
     public static void main(String[] args) {}
-    
-    public class ReadFile {
-        private final String file;
-        private final int[] freqArray; //array of frequencies
-        private int[][] freqValArray; //array of frequencies and corressponding characters
-        private int charCount;
-        private int totalChars;
-        private int postBitCount;
-        
-        /**
-         * Constructor 
-         * @param file filename to be read "--.txt"
-         */
-        public ReadFile(String file) {
-            totalChars = 0;
-            charCount = 0;
-            postBitCount = 0;
-            this.freqArray = new int[1112064]; //allocate an array for frequencies in ASCII utf-8
-            this.file = file;
-        }
-        
-        /**
-         * Opens the file, reading frequencies into the freqArray into the index that corresponds with it's character.
-         * @throws IOException
-         */
-        public void OpenFile() throws IOException {
-            
-            //find the file size, and allocate an array
-            long fileSize =  Files.size(new File(file).toPath());
-            long arraySize = fileSize ; 
-
-            int[] charArray = new int[(int)arraySize];
-            
-            FileReader fr = new FileReader(file);
-            BufferedReader textReader = new BufferedReader(fr);
-        
-            int index = 0;
-            int nextChar = textReader.read();
-     
-
-
-        }
 
 }
