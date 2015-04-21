@@ -27,7 +27,7 @@ File format: The three files you will be producing must have the same
 public class Reporting2 {
 	
     public static void main(String[] args) throws IOException {
-    	int[] array = ReadFileArray("C\Users\Katherine\IdeaProjects\SquintsAtSortingAlgorithms\SASA\SquintsAtSortingAlgorithms\src\sample");
+    	int[] array = ReadFileArray(args[0]);
     	System.out.println(Arrays.toString(array));
     }
     
@@ -45,7 +45,7 @@ public class Reporting2 {
             BufferedReader counter = new BufferedReader(fr);
             
             //count num of items in file's array
-            int val = counter.read();
+            int val;
             while (val != -1){
              count++;
              val = counter.read();

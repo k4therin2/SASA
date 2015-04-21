@@ -27,7 +27,7 @@ File format: The three files you will be producing must have the same
 public class Reporting2 {
 	
     public static void main(String[] args) throws IOException {
-    	int[] array = ReadFileArray("C\Users\Katherine\IdeaProjects\SquintsAtSortingAlgorithms\SASA\SquintsAtSortingAlgorithms\src\sample");
+    	int[] array = ReadFileArray("SquintsAtSortingAlgorithms/src/sample");
     	System.out.println(Arrays.toString(array));
     }
     
