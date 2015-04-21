@@ -10,17 +10,15 @@ public class Sorting {
 
     //===============================[HEAPSORT]=======================================
     // Build-Heap Function
-    public static int[] buildheap(int[] arr){
+    public static void buildheap(int[] arr){
     	int numItems=arr.length-1;
     	for(int i=numItems/2; i>=0; i--){
-    		arr = maxheap(arr,i);
+    		maxheap(arr,i);
     	}
-    	
-    	return arr;
     }
     
     // Max-Heap Function
-    public static int[] maxheap(int[] arr, int position){
+    public static void maxheap(int[] arr, int position){
     	int leftNode=2*position;
     	int rightNode=2*position+1;
     	int parent;
@@ -39,22 +37,20 @@ public class Sorting {
     		int temp = arr[position];
     	    arr[position] = arr[parent];
     	    arr[parent] = temp;
-    		arr = maxheap(arr, parent);
+    		maxheap(arr, parent);
     	}
-    	
-    	return arr;
     }
     
     // Sort Function
     public static int[] heapSort(int[] arr){
-    	arr = buildheap(arr);
+    	buildheap(arr);
     	
     	for(int i=numItems;i>0;i--){
     		int temp = arr[0];
     	    arr[0] = arr[i];
     	    arr[i] = temp;
     		numItems=numItems-1;
-    		arr = maxheap(arr, 0);
+    		maxheap(arr, 0);
     	}
     	
     	return arr;
@@ -63,11 +59,12 @@ public class Sorting {
 
     //===============================[QUICKORT]=======================================
     static int[] quickSort(int [] arr){
+        this.arr = arr;
         numItems = arr.length;
         return myQuickSort(arr, 0, numItems-1);
     }
 
-    static int[] myQuickSort(int[] arr, int low, int high) {
+    private int[] myQuickSort(int[] arr, int low, int high) {
         int i = low, j = high;
         // Get the pivot element from the middle of the list
         int pivot = arr[low + (high-low)/2];
@@ -105,12 +102,12 @@ public class Sorting {
         return arr;
     }
 
-    static void exchange(int i, int j) {
+    private void exchange(int i, int j) {
         int temp = arr[i];
         arr[i] = arr[j];
         arr[j] = temp;
     }
-
+}
     
     //===============================[/QUICKSORT]=======================================
     static int[] mergeSort(int [] arr){
