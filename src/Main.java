@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 
 public class Main {
 
@@ -7,9 +9,10 @@ public class Main {
         int[] random = {3, 7, 5, 8, 0, 7, 8, 3, 2, 6};
         int[] result;
 
+
+        System.out.println("Increasing: "+ Arrays.toString(increasing));
         result = Sorting.heapSort(increasing);
-        System.out.println("Increasing: "+ increasing);
-        System.out.println("Heapsort result, increasing: " + result);
+        System.out.println("Heapsort result, increasing: " + Arrays.toString(result));
 /*
         result = Sorting.heapSort(decreasing);
         System.out.println("Decreasing: "+ decreasing);
@@ -20,8 +23,4 @@ public class Main {
         System.out.println("Heapsort result, random: " + result);
 */
     }
-}
-
-public class Main {
-
 }
