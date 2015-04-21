@@ -115,8 +115,8 @@ public class Sorting {
 		//if not base case, sort
 		if (arr.length > 1) {
 			int half =arr.length /2; //find middle point
-			int[] a1 = subarray(arr, 0 , half); //establish first subarray
-			int [] a2 = subarray (arr, half,arr.length); //establish second subarray
+			int[] a1 = subarray(array, 0 , half); //establish first subarray
+			int [] a2 = subarray (array, half,arr.length); //establish second subarray
 			mergeSort(a1); //sort the first subarray
 			mergeSort(a2); //sort the second subarray
 			merge(arr, a1, a2); //merge the subarrays
