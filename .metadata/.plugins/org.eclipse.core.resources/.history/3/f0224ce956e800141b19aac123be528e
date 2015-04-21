@@ -5,7 +5,6 @@
  */
 public class Sorting {
 
-	//variables for heapsort
     private static int numItems;
     private static int leftNode;
     private static int rightNode;
@@ -18,11 +17,11 @@ public class Sorting {
      * Builds a heap out of input array.
      * @param arr input array
      */
-    private static void buildheap(int[] arr){
+    public static void buildheap(int[] arr){
     	numItems=arr.length-1; 
     	
-    	for(int i=numItems/2; i > -1; i--){
-    		siftDown(arr,i);
+    	for(int i=numItems/2; i>=0; i--){
+    		maxheap(arr,i);
     	}
     	
     }
@@ -33,7 +32,7 @@ public class Sorting {
      * @param arr input array
      * @param position starting index of current position in heap
      */
-    private static void siftDown(int[] arr, int position){
+    public static void siftDown(int[] arr, int position){
     	leftNode=2*position; //INDEX of left node of current position
     	rightNode=2*position+1; //INDEX of right code of current position
     	
@@ -51,10 +50,10 @@ public class Sorting {
     	}
     	//and if parent is not equal to the current position, switch around the actual values using calculated indexes
     	if(parent!=position){
-    		int temp = arr[position]; 
+    		int temp = arr[position];
     	    arr[position] = arr[parent];
-    	    arr[parent] = temp; 
-    		siftDown(arr, parent); //recursive call for subtree
+    	    arr[parent] = temp;
+    		maxheap(arr, parent); //recursive call for subtree
     	}
     }
     
@@ -83,41 +82,27 @@ public class Sorting {
 
     //===============================[QUICKSORT]=======================================
 
-    /**
-     * Quicksort sorting algorithm
-     * @param arr input array
-     * @return sorted array
-     */
-    public static int[] quickSort(int [] arr){
+    static int[] quickSort(int [] arr){
         numItems = arr.length;
         return myQuickSort(arr, 0, numItems-1);
     }
 
-    /**
-     * Sorts an array recursively by splitting into sub-arrays to sort about a pivot
-     * 
-     * @param arr input array
-     * @param start where the sort will start
-     * @param end where the sort will end
-     * @return sorted array
-     */
-    private static int[] myQuickSort(int[] arr, int start, int end) {
+    static int[] myQuickSort(int[] arr, int low, int high) {
+        int i = low, j = high;
+        // Get the pivot element from the middle of the list
+        int pivot = arr[low + (high-low)/2];
 
-        int pivot = arr[start + (end-start)/2]; //set pivot as middle element of two subarrays
-        int left = start; //left pointer
-        int right = end; //right pointer
-
-        // sort input portion of array
-        while (left <= right) {
-        	
-        	//while the left pointer element is less than the pivot value, increment the left pointer because nothing needs to be changed
-            while (arr[left] < pivot) {
-                left++;
+        // Divide into two lists
+        while (i <= j) {
+            // If the current value from the left list is smaller then the pivot
+            // element then get the next element from the left list
+            while (arr[i] < pivot) {
+                i++;
             }
-          
-            //while the right pointer value is more than the pivot, decrement the right pointer because nothing needs to be changed
-            while (arr[right] > pivot) {
-                right--;
+            // If the current value from the right list is larger then the pivot
+            // element then get the next element from the right list
+            while (arr[j] > pivot) {
+                j--;
             }
 
             // If we have found a values in the left list which is larger then
@@ -125,24 +110,19 @@ public class Sorting {
             // which is smaller then the pivot element then we exchange the
             // values.
             // As we are done we can increase i and j
-            
-            //if, by this point, we have found any left value larger than pivot or right value smaller than pivot,
-            //the elements will be switched.
-            if (left <= right) {
-                int temp = arr[left];
-                arr[left] = arr[right];
-                arr[right] = temp;
-                left++;
-                right--;
+            if (i <= j) {
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+                i++;
+                j--;
             }
         }
-        
-        // recursively call quicksort on left subarray until we have completed sorting left subarray
-        if (start < right)
-            myQuickSort(arr, start, right);
-        //recursively call quicksort on right subarray until we have completed sorting right subarray
-        if (left < end)
-            myQuickSort(arr, left, end);
+        // Recursion
+        if (low < j)
+            myQuickSort(arr, low, j);
+        if (i < high)
+            myQuickSort(arr, i, high);
         
         return arr;
     }
@@ -151,10 +131,6 @@ public class Sorting {
     
     //===============================[MERGESORT]=======================================
 
-    /**
-     * @param arr input array
-     * @return sorted array
-     */
     public static int[] mergeSort (int[] arr) {
 		//if not base case, sort
 		if (arr.length > 1) {

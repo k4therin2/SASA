@@ -93,21 +93,13 @@ public class Sorting {
         return myQuickSort(arr, 0, numItems-1);
     }
 
-    /**
-     * Sorts an array recursively by splitting into sub-arrays to sort about a pivot
-     * 
-     * @param arr input array
-     * @param start where the sort will start
-     * @param end where the sort will end
-     * @return sorted array
-     */
     private static int[] myQuickSort(int[] arr, int start, int end) {
 
         int pivot = arr[start + (end-start)/2]; //set pivot as middle element of two subarrays
         int left = start; //left pointer
         int right = end; //right pointer
 
-        // sort input portion of array
+        // sort array
         while (left <= right) {
         	
         	//while the left pointer element is less than the pivot value, increment the left pointer because nothing needs to be changed
@@ -126,8 +118,7 @@ public class Sorting {
             // values.
             // As we are done we can increase i and j
             
-            //if, by this point, we have found any left value larger than pivot or right value smaller than pivot,
-            //the elements will be switched.
+            //if, by this point, the left element is still <= right element, 
             if (left <= right) {
                 int temp = arr[left];
                 arr[left] = arr[right];
@@ -136,11 +127,9 @@ public class Sorting {
                 right--;
             }
         }
-        
-        // recursively call quicksort on left subarray until we have completed sorting left subarray
+        // Recursion
         if (start < right)
             myQuickSort(arr, start, right);
-        //recursively call quicksort on right subarray until we have completed sorting right subarray
         if (left < end)
             myQuickSort(arr, left, end);
         
@@ -151,10 +140,6 @@ public class Sorting {
     
     //===============================[MERGESORT]=======================================
 
-    /**
-     * @param arr input array
-     * @return sorted array
-     */
     public static int[] mergeSort (int[] arr) {
 		//if not base case, sort
 		if (arr.length > 1) {
