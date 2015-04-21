@@ -1,4 +1,0 @@
-INDEX VERSION 1.127+C:\Users\Katherine\IdeaProjects\SquintsAtSortingAlgorithms\SASA\.metadata\.plugins\org.eclipse.jdt.core
-2348113578.index
-57470461.index
-130147870.index
