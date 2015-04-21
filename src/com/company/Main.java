@@ -11,7 +11,7 @@ public class Main {
         result = Sorting.heapSort(increasing);
         System.out.println("Increasing: "+ increasing);
         System.out.println("Heapsort result, increasing: " + result);
-
+/*
         result = Sorting.heapSort(decreasing);
         System.out.println("Decreasing: "+ decreasing);
         System.out.println("Heapsort result, decreasing: " + result);
@@ -19,6 +19,6 @@ public class Main {
         result = Sorting.heapSort(random);
         System.out.println("Random: "+ random);
         System.out.println("Heapsort result, random: " + result);
-
+*/
     }
 }
