@@ -1,8 +1,11 @@
-import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.util.Arrays;
+import java.util.Scanner;
 
 
 /**
@@ -27,12 +30,52 @@ File format: The three files you will be producing must have the same
 public class Reporting2 {
 	
     public static void main(String[] args) throws IOException {
-    	int[] array = ReadFileArray("C\Users\Katherine\IdeaProjects\SquintsAtSortingAlgorithms\SASA\SquintsAtSortingAlgorithms\src\sample");
-    	System.out.println(Arrays.toString(array));
+    	int[] array = ReadFileArray(args[0]);
+    	testSorts(array);
     }
     
+	private static void testSorts(int[] arr) throws FileNotFoundException, UnsupportedEncodingException {
+		int[] initial = arr.clone();
+		double start;
+		double end;
+		
+		for (int i=0; i < 3; i++){
+	        arr = initial.clone();
+			start = System.nanoTime();
+	        Sorting.heapSort(arr);
+			end = System.nanoTime()-start;
+				if (i==0){
+					readToFile("HS", arr);
+				    System.out.println("HSkrc53= " +end+"ns");	
+				}
+				
+	        arr = initial.clone();
+			start = System.nanoTime();	
+			Sorting.quickSort(arr);  
+			end = System.nanoTime()-start;
+				if (i==0){
+					readToFile("QS", arr);
+				    System.out.println("QSkrc53= " +end+"ns");	
+				}
+				
+	        arr = initial.clone();
+			start = System.nanoTime();	
+			Sorting.mergeSort(arr); 
+			end = System.nanoTime()-start;
+				if (i==0){
+					readToFile("MS", arr);
+					System.out.println("MSkrc53= " +end+"ns");	
+				}
+			}
+		}
 
-        
+	private static void readToFile(String type, int[] arr) throws FileNotFoundException, UnsupportedEncodingException {
+         String fileName = "krc53"+type+".txt";
+         PrintWriter writer = new PrintWriter(fileName, "UTF-8");
+         writer.println(Arrays.toString(arr));
+         writer.close();
+	}
+
         /**
          * Opens the file
          * @throws IOException
@@ -42,28 +85,30 @@ public class Reporting2 {
             int count = 0; //number of ints in file
             File file = new File(f);
             FileReader fr = new FileReader(file);
-            BufferedReader counter = new BufferedReader(fr);
+            Scanner counter = new Scanner(fr);
             
             //count num of items in file's array
-            int val = counter.read();
-            while (val != -1){
-             count++;
-             val = counter.read();
+            while (counter.hasNext()){
+                count++;
+            	counter.nextInt();
             }
             
             int[] array = new int[count];
             int i = 0;
+            fr.close();
+            counter.close();
             
             //read values into array
-            BufferedReader grabber = new BufferedReader(fr);
-            val = (int) grabber.read();
-	            while (val != -1){
-	                array[i] = val;
+            FileReader fr2 = new FileReader(file);
+            Scanner grabber = new Scanner(fr2);
+            
+	            while (grabber.hasNext()){
+	                array[i] = grabber.nextInt();
 	                i++;
-	                val = (int) grabber.read();
 	               }
 	            
-            fr.close();
+            fr2.close();
+            grabber.close();
             return array;
         }
 
