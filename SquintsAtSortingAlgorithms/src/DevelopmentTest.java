@@ -1,7 +1,13 @@
 import java.util.Arrays;
 
 
-public class Main {
+/**
+ * Test file to test accuracy of algorithms while implimenting. 
+ * 
+ * @author Katherine Cass
+ *
+ */
+public class DevelopmentTest {
 
     public static void main(String[] args) {
 	    int[] increasing = {0, 1, 2, 3, 4, 5, 5, 6, 6, 7};

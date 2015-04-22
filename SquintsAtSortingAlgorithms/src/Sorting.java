@@ -1,7 +1,9 @@
 
-
 /**
- * Created by Katherine on 4/20/2015.
+ * A class of static array sorting algorithms including Heapsort, Quicksort and Mergesort.
+ * 
+ * @author Katherine Cass
+ *
  */
 public class Sorting {
 
@@ -19,12 +21,12 @@ public class Sorting {
      * @param arr input array
      */
     private static void buildheap(int[] arr){
+
     	numItems=arr.length-1; 
     	
     	for(int i=numItems/2; i > -1; i--){
     		siftDown(arr,i);
     	}
-    	
     }
     
     /**
@@ -75,7 +77,6 @@ public class Sorting {
     		numItems=numItems-1;
     		siftDown(arr, 0);
     	}
-    	
     	return arr; 
     }
     
@@ -152,6 +153,8 @@ public class Sorting {
     //===============================[MERGESORT]=======================================
 
     /**
+     * Performs mergesort on an input array.
+     * 
      * @param arr input array
      * @return sorted array
      */
@@ -168,39 +171,43 @@ public class Sorting {
 
 		return arr;
 	}
+    
+	/**
+	 * Merge method for mergesort
+	 * @param arr input array
+	 * @param subA subarray A
+	 * @param subB subarray B
+	 */
+	private static void merge(int [] arr, int[] subA, int[] subB){
+		int indexA = 0; 
+		int indexB = 0;
 
-	private static void merge(int [] arr, int[] a1, int[] a2){
-		int n1 = a1.length; //size of a1
-		int n2 = a2.length; //size of a2
-		int i1 = 0; 
-		int i2 = 0;
-
-		//while i is less than the length of the entire array
+		//while indexA is less than the length of the entire array:
 		for (int i = 0; i <arr.length; i++) {
-			//if first subarray pointer is equal to the length of a2 OR 
-			//first pointer is less than size of a2 but the i1-th element of a1 is less than
-			//the i2-th element of a2, set the i-th element of array equal to the i1-th
-			//element of a1
-			//then increment i1
-			if (i2 == n2 || (i1 < n1 && a1[i1] < a2[i2])) {
-				arr[i] = a1[i1];
-				i1++;
+			//if first subarray pointer is equal to the length of subB OR 
+			//first pointer is less than size of subB but the indexA-th element of subA is less than
+			//the indexB-th element of subB, set the indexA-th element of array equal to the indexA-th
+			//element of subA
+			//then increment indexA
+			if (indexB == subB.length || (indexA < subA.length && subA[indexA] < subB[indexB])) {
+				arr[i] = subA[indexA];
+				indexA++;
 			}
-			//otherwise, set the i-th element of array equal to the i2-nd element of a2, and increment i2
+			//otherwise, set the indexA-th element of array equal to the indexB-th element of subB, and increment indexB
 			else {
-				arr[i] = a2[i2];
-				i2++;
+				arr[i] = subB[indexB];
+				indexB++;
 			}
 		}
 	}
 
-	
-	private static int [] subarray (int []arr, int p1, int p2) {
-		int [] result = new int[p2-p1];
 
-		for (int i = p1; i < p2; i++)
-		{
-			result[i - p1] =arr[i];
+	//quick method for creating the subarrays
+	private static int [] subarray (int []arr, int start, int end) {
+		int [] result = new int[end-start];
+
+		for (int i = start; i < end; i++){
+			result[i - start] =arr[i];
 		}
 		return result;
 	}

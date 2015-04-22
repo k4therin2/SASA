@@ -1,0 +1,43 @@
+In nanoseconds, for arrays of size 1000: 
+Increasing: 
+Means   | HeapSort: 453826.1 QuickSort: 77533.7 MergeSort: 407596.8
+Variance| HeapSort: 1.1325483705749002E11 QuickSort: 4.177426266409999E9 MergeSort: 5.5712165204759995E10
+Decreasing: 
+Means   | HeapSort: 108110.9 QuickSort: 94169.3 MergeSort: 334553.5
+Variance| HeapSort: 3.8438126948999995E8 QuickSort: 1.52120861881E9 MergeSort: 4.15161135845E9
+Random: 
+Means   | HeapSort: 249151.0 QuickSort: 234867.4 MergeSort: 395237.4
+Variance| HeapSort: 3.68119484E8 QuickSort: 2.7216305860039997E10 MergeSort: 6.546485387439999E9
+
+In nanoseconds, for arrays of size 10000: 
+Increasing: 
+Means   | HeapSort: 1812481.7 QuickSort: 520283.4 MergeSort: 2078653.2
+Variance| HeapSort: 1.7050340341200998E11 QuickSort: 2.8540881568764E11 MergeSort: 3.9411250140095996E11
+Decreasing: 
+Means   | HeapSort: 98659.9 QuickSort: 269635.5 MergeSort: 1857641.9
+Variance| HeapSort: 1.85063173189E9 QuickSort: 7.22979654945E9 MergeSort: 2.114854258509E10
+Random: 
+Means   | HeapSort: 1381791.6 QuickSort: 934679.7 MergeSort: 2717182.8
+Variance| HeapSort: 2.815721662424E10 QuickSort: 5.734665699609999E9 MergeSort: 4.382130224211599E11
+
+In nanoseconds, for arrays of size 100000: 
+Increasing: 
+Means   | HeapSort: 1.07966289E7 QuickSort: 1625511.4 MergeSort: 8293059.1
+Variance| HeapSort: 8.280393145492899E11 QuickSort: 4.55873094124E9 MergeSort: 2.1933390109392898E12
+Decreasing: 
+Means   | HeapSort: 394467.6 QuickSort: 2520376.6 MergeSort: 1.18210734E7
+Variance| HeapSort: 6.979688284399999E8 QuickSort: 2.976172143904E10 MergeSort: 4.464553954496984E13
+Random: 
+Means   | HeapSort: 1.61942163E7 QuickSort: 1.07283327E7 MergeSort: 2.07184495E7
+Variance| HeapSort: 2.8557269605358096E12 QuickSort: 1.5410153567681003E11 MergeSort: 3.777813188559425E13
+
+In nanoseconds, for arrays of size 1000000: 
+Increasing: 
+Means   | HeapSort: 1.233690469E8 QuickSort: 1.87109149E7 MergeSort: 1.045447179E8
+Variance| HeapSort: 3.7062893183745695E13 QuickSort: 3.2790213132889E11 MergeSort: 8.591474515040539E14
+Decreasing: 
+Means   | HeapSort: 4108083.3 QuickSort: 2.97792751E7 MergeSort: 1.051858562E8
+Variance| HeapSort: 3.2753142731409996E10 QuickSort: 5.14656717320089E12 MergeSort: 1.3596272642273755E15
+Random: 
+Means   | HeapSort: 2.178824221E8 QuickSort: 1.20259406E8 MergeSort: 1.797325111E8
+Variance| HeapSort: 8.95055844099509E13 QuickSort: 1.3976825586954E12 MergeSort: 3.7404862719378484E13

@@ -1,21 +1,14 @@
 import java.util.Random;
 
 
-/**
- * Reporting1 should generate the 3 types of arrays specified in the Research section. 1,000, 10,000, 100,000, 1,000,000.
- *  Then for each array:
+/** 
+ * A testing class that generates increasing, decreasing and random arrays of sizes 1,000, 10,000, 100,000, and 1,000,000, and then 
+ * tests the performance of Sorting.java sorting methods on these arrays, printing results to the console.
  * 
-Run each of the sorting methods on the arrays as many times as specified above
-
-Record the execution time of these methods
-
-Print out the results in a form suitable for inclusion into your report and/or writes out the results into a 
-file if you need to post-process your results (e.g., by Excel to produce graphs for your report).  
-If you do not need this output file for your report, you do not have to write it.
- * 
- * @author Katherine
+ * @author Katherine Cass
  *
  */
+
 public class Reporting1 {
 
     public static void main(String[] args) {
@@ -69,6 +62,13 @@ public class Reporting1 {
     }
 
     
+	/**
+	 * Method that repeatedly tests input array on Heapsort, Quicksort and 
+	 * Mergesort and returns average statistics on elapsed time for each.
+	 * 
+	 * @param arr input array
+	 * @return result (mean and variance of different algorithms)
+	 */
 	private static String testSorts(int[] arr) {
 		int[] initial = arr.clone();
 		double start;
@@ -76,7 +76,7 @@ public class Reporting1 {
 		double[] quickTime = new double[10];
 		double[] mergeTime = new double[10];
 		
-		for (int i=0; i < 10; i++){
+		for (int i=0; i < 10; i++){  //runs 10 times
 	        arr = initial.clone();
 			start = System.nanoTime();
 	        Sorting.heapSort(arr);
@@ -105,6 +105,12 @@ public class Reporting1 {
 		
 	}
 	
+	/**
+	 * Finds mean value of input array
+	 * 
+	 * @param arrayOfSamples input array
+	 * @return mean value
+	 */
 	private static double meanVal(double[] arrayOfSamples){
 		double total = 0;
 		    for (double i :arrayOfSamples){
@@ -113,6 +119,13 @@ public class Reporting1 {
 	   return total/arrayOfSamples.length;
 	}
 	
+	/**
+	 * Returns variance of an input array
+	 * 
+	 * @param arrayOfSamples input array
+	 * @param mean mean of input array
+	 * @return variance
+	 */
 	private static double varianceVal(double[] arrayOfSamples, double mean){
 	        double v = 0;
 	        for(double i :arrayOfSamples)
@@ -121,6 +134,12 @@ public class Reporting1 {
 	}
 
 
+	/**
+	 * Generates a decreasing array of size n
+	 * 
+	 * @param n number of elements
+	 * @return generated array
+	 */
 	private static int[] generateDecreasing(int n) {
 		int[] arr = new int[n];
 		
@@ -130,6 +149,12 @@ public class Reporting1 {
 		return arr;
 	}
 
+	/**
+	 * Generates an increasing array of size n
+	 * 
+	 * @param n number of elements
+	 * @return generated array
+	 */
 	private static int[] generateIncreasing(int n) {
 		int[] arr = new int[n];
 		
@@ -139,6 +164,11 @@ public class Reporting1 {
 		return arr;
 	}
 	
+	/**
+	 * Generates a random array of size n, ranging in numbers from 0-n.
+	 * @param n number of values
+	 * @return generated array
+	 */
 	private static int[] generateRandom(int n) {
 		int[] arr = new int[n];
 		Random r = new Random();
